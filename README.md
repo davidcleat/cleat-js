@@ -1,4 +1,4 @@
-# cleat-js
+# cleatapi
 
 A TypeScript client for the [Cleat](https://cleat.so) API: read the texts and transcribed calls that arrive on your own US mobile lines, and verify Cleat's signed webhooks.
 
@@ -14,18 +14,22 @@ Cleat is for your own accounts, or your company's: the cloud console, the regist
 
 ## Install
 
-Not on npm yet — install it straight from this repository:
+```sh
+npm install cleatapi
+```
+
+The package is `cleatapi`: the bare name `cleat` on npm belongs to an unrelated command line tool published in 2015. The repository keeps the name `cleat-js`.
+
+Until the first release lands on npm, install it from here instead — it builds itself on install, so nothing else is needed:
 
 ```sh
 npm install github:davidcleat/cleat-js
 ```
 
-It builds itself on install, so nothing else is needed.
-
 ## Wait for a code
 
 ```ts
-import { CleatClient } from "cleat-js";
+import { CleatClient } from "cleatapi";
 
 // Reads CLEAT_API_KEY from the environment.
 const cleat = new CleatClient();
@@ -83,7 +87,7 @@ Cleat POSTs `{"type":"message.received","data":{...}}` to your endpoint and sign
 
 ```ts
 import express from "express";
-import { verifyWebhook, CleatSignatureError } from "cleat-js";
+import { verifyWebhook, CleatSignatureError } from "cleatapi";
 
 const app = express();
 

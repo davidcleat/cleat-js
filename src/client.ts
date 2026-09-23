@@ -30,7 +30,7 @@ export interface CleatClientOptions {
 }
 
 const DEFAULT_BASE_URL = "https://cleat.so";
-const USER_AGENT = "cleat-js/0.1.0";
+const USER_AGENT = "cleatapi/0.1.0";
 /** The API accepts 1 to 200 and defaults to 50. */
 const MAX_LIMIT = 200;
 /** Polling faster than this is rude and eats the 120/minute budget for nothing. */

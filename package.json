@@ -1,5 +1,5 @@
 {
-  "name": "cleat-js",
+  "name": "cleatapi",
   "version": "0.1.0",
   "description": "TypeScript client for the Cleat API: read the texts and transcribed calls that arrive on your own US mobile lines.",
   "license": "MIT",
