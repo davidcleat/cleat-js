@@ -18,13 +18,7 @@ Cleat is for your own accounts, or your company's: the cloud console, the regist
 npm install cleatapi
 ```
 
-The package is `cleatapi`: the bare name `cleat` on npm belongs to an unrelated command line tool published in 2015. The repository keeps the name `cleat-js`.
-
-Until the first release lands on npm, install it from here instead — it builds itself on install, so nothing else is needed:
-
-```sh
-npm install github:davidcleat/cleat-js
-```
+The package is [`cleatapi`](https://www.npmjs.com/package/cleatapi): the bare name `cleat` on npm belongs to an unrelated command line tool published in 2015. The repository keeps the name `cleat-js`.
 
 ## Wait for a code
 
