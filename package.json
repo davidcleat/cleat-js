@@ -1,0 +1,58 @@
+{
+  "name": "cleat-js",
+  "version": "0.1.0",
+  "description": "TypeScript client for the Cleat API: read the texts and transcribed calls that arrive on your own US mobile lines.",
+  "license": "MIT",
+  "author": "Hyppe Tech LLC",
+  "homepage": "https://cleat.so/for/developers",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/davidcleat/cleat-js.git"
+  },
+  "bugs": "https://github.com/davidcleat/cleat-js/issues",
+  "keywords": [
+    "cleat",
+    "sms",
+    "2fa",
+    "otp",
+    "webhook",
+    "verification-code"
+  ],
+  "type": "module",
+  "sideEffects": false,
+  "engines": {
+    "node": ">=18"
+  },
+  "main": "./dist/cjs/index.js",
+  "module": "./dist/esm/index.js",
+  "types": "./dist/esm/index.d.ts",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/esm/index.d.ts",
+        "default": "./dist/esm/index.js"
+      },
+      "require": {
+        "types": "./dist/cjs/index.d.ts",
+        "default": "./dist/cjs/index.js"
+      }
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "clean": "node -e \"require('node:fs').rmSync('dist',{recursive:true,force:true});require('node:fs').rmSync('build-test',{recursive:true,force:true})\"",
+    "build": "npm run clean && tsc -p tsconfig.build.json && tsc -p tsconfig.cjs.json && node scripts/finish-build.mjs",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "tsc -p tsconfig.test.json && node --test build-test/test/*.test.js",
+    "prepare": "npm run build",
+    "prepublishOnly": "npm run build && npm test"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.2",
+    "typescript": "^5.7.2"
+  }
+}
