@@ -124,6 +124,8 @@ export class CleatClient {
     if (options.after !== undefined) query.after = isoOf(options.after);
     if (options.before !== undefined) query.before = isoOf(options.before);
     if (options.limit !== undefined) {
+      // The API clamps a limit outside its range rather than refusing it. Clamping
+      // silently is worse for a caller than saying so, so this refuses instead.
       if (!Number.isInteger(options.limit) || options.limit < 1 || options.limit > MAX_LIMIT) {
         throw new CleatError(`limit must be an integer from 1 to ${MAX_LIMIT}.`);
       }

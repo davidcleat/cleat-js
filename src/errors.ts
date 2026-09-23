@@ -25,7 +25,7 @@ export class CleatApiError extends CleatError {
   }
 }
 
-/** 400: `after` or `before` was not an ISO 8601 timestamp, or `limit` was out of range. */
+/** 400: `after` or `before` was not an ISO 8601 timestamp. */
 export class BadRequestError extends CleatApiError {}
 
 /** 401: the key is missing, malformed, revoked, or its workspace owner is disabled. */

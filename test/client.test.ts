@@ -80,7 +80,7 @@ test("listMessages serialises after, before and limit into the query string", as
   assert.equal(url.searchParams.get("limit"), "200");
 });
 
-test("listMessages refuses a limit the API would reject, without spending a request", async () => {
+test("listMessages refuses an out-of-range limit rather than letting it be clamped", async () => {
   const { cleat, stub } = client([{ status: 200, body: { data: [] } }]);
 
   await assert.rejects(() => cleat.listMessages(LINE.id, { limit: 201 }), CleatError);

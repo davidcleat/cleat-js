@@ -114,7 +114,7 @@ app.post("/cleat-webhook", express.raw({ type: "application/json" }), (req, res)
 ## How to get an API key
 
 1. Create a Cleat account at [cleat.so](https://cleat.so) and subscribe to a line.
-2. Verify your identity once, as the line's owner. Until you do, the line runs and keeps every text it receives, but the API answers `403` with the code `verify_first` and no message can be read.
+2. Verify your identity once, as the line's owner. Until you do, the line runs and keeps every text it receives, but reading messages answers `403` with the code `verify_first`. `listLines()` works before verifying; `listMessages()` and `waitForCode()` do not.
 3. In **workspace settings**, create an API key. It starts with `clt_` and is shown once, so copy it then.
 
 A key belongs to one workspace. You can narrow it further when you create it: to named lines, and to a date it stops working — which is what makes a key safe to hand to an agent or a contractor. A line outside a key's scope answers `404`, exactly like a line in another workspace, so this library cannot tell you which of the two happened.
